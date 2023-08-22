@@ -5,41 +5,39 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RouteBuilders {
-  static PageRouteBuilder<dynamic> sharedAxisTransition(
+  static Route<dynamic> sharedAxisTransition(
       Widget page, SharedAxisTransitionType type) {
-    return PageRouteBuilder<dynamic>(
-      pageBuilder: (context, animation, secondaryAnimation) => page,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-          Platform.isAndroid
-              ? SharedAxisTransition(
-                  animation: animation,
-                  secondaryAnimation: secondaryAnimation,
-                  transitionType: type,
-                  child: child,
-                )
-              : CupertinoPageTransition(
-                  primaryRouteAnimation: animation,
-                  secondaryRouteAnimation: secondaryAnimation,
-                  linearTransition: true,
-                  child: child),
-    );
+    return Platform.isAndroid
+        ? PageRouteBuilder<dynamic>(
+            pageBuilder: (context, animation, secondaryAnimation) => page,
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) =>
+                    SharedAxisTransition(
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              transitionType: type,
+              child: child,
+            ),
+          )
+        : CupertinoPageRoute<dynamic>(
+            builder: (context) => page,
+          );
   }
 
-  static PageRouteBuilder<dynamic> fadeThroughTransition(Widget page) {
-    return PageRouteBuilder<dynamic>(
-      pageBuilder: (context, animation, secondaryAnimation) => page,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-          Platform.isAndroid
-              ? FadeThroughTransition(
-                  animation: animation,
-                  secondaryAnimation: secondaryAnimation,
-                  child: child,
-                )
-              : CupertinoPageTransition(
-                  primaryRouteAnimation: animation,
-                  secondaryRouteAnimation: secondaryAnimation,
-                  linearTransition: true,
-                  child: child),
-    );
+  static Route<dynamic> fadeThroughTransition(Widget page) {
+    return Platform.isAndroid
+        ? PageRouteBuilder<dynamic>(
+            pageBuilder: (context, animation, secondaryAnimation) => page,
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) =>
+                    FadeThroughTransition(
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+            ),
+          )
+        : CupertinoPageRoute<dynamic>(
+            builder: (context) => page,
+          );
   }
 }

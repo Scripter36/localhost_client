@@ -39,8 +39,10 @@ class _SigninPageState extends State<SigninPage> {
 
   void _verifyCode(String verifyCode) {
     // TODO: verify code. if failed, show snackbar. else, if registered, go to home. else, go to register.
-    Navigator.of(context).push(RouteBuilders.sharedAxisTransition(
-        const SignupPage(), SharedAxisTransitionType.horizontal));
+    Navigator.of(context).pushAndRemoveUntil(
+        RouteBuilders.sharedAxisTransition(
+            const SignupPage(), SharedAxisTransitionType.horizontal),
+        (route) => false);
   }
 
   @override

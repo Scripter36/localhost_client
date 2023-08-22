@@ -28,9 +28,9 @@ class _SignupState extends State<SignupPage> {
 
   void _signup() {
     // TODO: check nickname and agree policy, and signup
-    Navigator.of(context).popUntil((route) => false);
-    Navigator.of(context)
-        .push(RouteBuilders.fadeThroughTransition(const HomePage()));
+    Navigator.of(context).pushAndRemoveUntil(
+        RouteBuilders.fadeThroughTransition(const HomePage()),
+        (route) => false);
   }
 
   @override
@@ -62,7 +62,7 @@ class _SignupState extends State<SignupPage> {
                         const SizedBox(height: 16),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(appLocalizations.signup_profile_label,
+                          child: Text(appLocalizations.signup_profile,
                               style: textTheme.labelLarge),
                         ),
                         const SizedBox(height: 16),

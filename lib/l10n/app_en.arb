@@ -7,12 +7,10 @@
   "@description": {
     "description": "App description"
   },
-  
   "start_confirm": "Start with phone number",
   "@start_confirm": {
     "description": "Start with phone number button"
   },
-
   "signin_title": "Signin",
   "@signin_title": {
     "description": "Signin title"
@@ -37,7 +35,6 @@
   "@signin_send_verify": {
     "description": "Signin send verify code button"
   },
-
   "signup_title": "Signup",
   "@signup_title": {
     "description": "Signup title"
@@ -46,8 +43,8 @@
   "@signup_guide": {
     "description": "Signup guide"
   },
-  "signup_profile_label": "Profile",
-  "@signup_profile_label": {
+  "signup_profile": "Profile",
+  "@signup_profile": {
     "description": "Signup profile label"
   },
   "signup_profile_nickname": "Nickname",
@@ -91,6 +88,244 @@
   "signup_confirm": "Signup",
   "@signup_confirm": {
     "description": "Signup confirm button"
+  },
+  "product_list_bottom_name": "Home",
+  "@product_list_bottom_name": {
+    "description": "Product list bottom navigation bar name"
+  },
+  "time_ago": "{time} ago",
+  "@time_ago": {
+    "description": "time label to show how long ago",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "1 hour"
+      }
+    }
+  },
+  "product_item_price": "{remain_price} / {price} won",
+  "@product_item_price": {
+    "description": "Product item price label",
+    "placeholders": {
+      "remain_price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1,000"
+      },
+      "price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "10,000"
+      }
+    }
+  },
+  "price_per_unit": "{price} won per {amount}{unit}",
+  "@price_per_unit": {
+    "description": "Product item price per label",
+    "placeholders": {
+      "price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "10,000"
+      },
+      "amount": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "unit": {
+        "type": "String",
+        "example": "kg"
+      }
+    }
+  },
+  "product_detail_rating_short": "{average} ({count})",
+  "@product_detail_rating_short": {
+    "description": "Product detail rating short label",
+    "placeholders": {
+      "average": {
+        "type": "num",
+        "example": "4.5"
+      },
+      "count": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "100"
+      }
+    }
+  },
+  "product_detail_desired_location": "Desired location",
+  "@product_detail_desired_location": {
+    "description": "Product detail desired location label"
+  },
+  "product_detail_location_distance": "You can pick up within {distance}{unit}",
+  "@product_detail_location_distance": {
+    "description": "Product detail location distance label",
+    "placeholders": {
+      "distance": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "5"
+      },
+      "unit": {
+        "type": "String",
+        "example": "km"
+      }
+    }
+  },
+  "product_detail_participants": "{count} participants",
+  "@product_detail_participants": {
+    "description": "Product detail participants label",
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "5"
+      }
+    }
+  },
+  "product_detail_favorites": "{count} favorites",
+  "@product_detail_favorites": {
+    "description": "Product detail favorites label",
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "5"
+      }
+    }
+  },
+  "product_detail_views": "{count} views",
+  "@product_detail_views": {
+    "description": "Product detail views label",
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "5"
+      }
+    }
+  },
+  "product_detail_other_products_of_seller": "Other products of {seller}",
+  "@product_detail_other_products_of_seller": {
+    "description": "Product detail other products of seller label",
+    "placeholders": {
+      "seller": {
+        "type": "String",
+        "example": "seller"
+      }
+    }
+  },
+  "product_state_complete_matching": "Matched",
+  "@product_state_complete_matching": {
+    "description": "Product state complete matching label"
+  },
+  "product_state_complete_buying": "Purchased",
+  "@product_state_complete_buying": {
+    "description": "Product state complete buying label"
+  },
+  "product_state_finished": "Finished",
+  "@product_state_finished": {
+    "description": "Product state finished label"
+  },
+  "product_amount_title": "Group purchase",
+  "@product_amount_title": {
+    "description": "Product amount title"
+  },
+  "product_amount_available": "Available amount: {amount}{unit}",
+  "@product_amount_available": {
+    "description": "Product amount available label",
+    "placeholders": {
+      "amount": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "5"
+      },
+      "unit": {
+        "type": "String",
+        "example": "kg"
+      }
+    }
+  },
+  "product_amount": "Amount",
+  "@product_amount": {
+    "description": "Product amount label"
+  },
+  "product_amount_supporting": "Minimum {min}{unit} · Increment {increment}{unit}",
+  "@product_amount_supporting": {
+    "description": "Product amount supporting label",
+    "placeholders": {
+      "min": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "unit": {
+        "type": "String",
+        "example": "kg"
+      },
+      "increment": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      }
+    }
+  },
+  "product_amount_error": "Please enter the amount",
+  "@product_amount_error": {
+    "description": "Product amount error text"
+  },
+  "product_amount_error_min": "The minimum amount is {min}{unit}",
+  "@product_amount_error_min": {
+    "description": "Product amount error min text",
+    "placeholders": {
+      "min": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "unit": {
+        "type": "String",
+        "example": "kg"
+      }
+    }
+  },
+  "product_amount_error_increment": "The amount must be a multiple of {increment}{unit}",
+  "@product_amount_error_increment": {
+    "description": "Product amount error increment text",
+    "placeholders": {
+      "increment": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "unit": {
+        "type": "String",
+        "example": "kg"
+      }
+    }
+  },
+  "product_amount_total": "Total",
+  "@product_amount_total": {
+    "description": "Product amount total label"
+  },
+  "product_amount_total_price": "{price} won",
+  "@product_amount_total_price": {
+    "description": "Product amount total price label",
+    "placeholders": {
+      "price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "10,000"
+      }
+    }
+  },
+  "product_amount_cancel": "Cancel",
+  "@product_amount_cancel": {
+    "description": "Product amount cancel button"
+  },
+  "product_amount_purchase": "Purchase",
+  "@product_amount_purchase": {
+    "description": "Product amount purchase button"
   }
-
 }
