@@ -1,5 +1,8 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:localhost/start/screens/signup.dart';
+import 'package:localhost/utils/route_builders.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -36,7 +39,8 @@ class _SigninPageState extends State<SigninPage> {
 
   void _verifyCode(String verifyCode) {
     // TODO: verify code. if failed, show snackbar. else, if registered, go to home. else, go to register.
-    Navigator.of(context).pushNamed('/signup');
+    Navigator.of(context).push(RouteBuilders.sharedAxisTransition(
+        const SignupPage(), SharedAxisTransitionType.horizontal));
   }
 
   @override
@@ -53,6 +57,7 @@ class _SigninPageState extends State<SigninPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextField(
+                autofocus: true,
                 enabled: !_sentVerifyCode,
                 decoration: InputDecoration(
                     border: const OutlineInputBorder(),
@@ -64,6 +69,7 @@ class _SigninPageState extends State<SigninPage> {
               const SizedBox(height: 16),
               if (_sentVerifyCode)
                 TextField(
+                  autofocus: true,
                   decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       labelText: appLocalizations.signin_verify),
@@ -106,7 +112,7 @@ class _SigninPageState extends State<SigninPage> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

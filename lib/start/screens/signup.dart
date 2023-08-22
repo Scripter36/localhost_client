@@ -1,7 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:localhost/home/screens/home.dart';
+import 'package:localhost/utils/route_builders.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -29,7 +29,8 @@ class _SignupState extends State<SignupPage> {
   void _signup() {
     // TODO: check nickname and agree policy, and signup
     Navigator.of(context).popUntil((route) => false);
-    Navigator.of(context).pushNamed('/home');
+    Navigator.of(context)
+        .push(RouteBuilders.fadeThroughTransition(const HomePage()));
   }
 
   @override
@@ -51,6 +52,7 @@ class _SignupState extends State<SignupPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
