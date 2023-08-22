@@ -1,0 +1,96 @@
+{
+  "title": "Localhost",
+  "@title": {
+    "description": "App title"
+  },
+  "description": "your local joint purchase market",
+  "@description": {
+    "description": "App description"
+  },
+  
+  "start_confirm": "Start with phone number",
+  "@start_confirm": {
+    "description": "Start with phone number button"
+  },
+
+  "signin_title": "Signin",
+  "@signin_title": {
+    "description": "Signin title"
+  },
+  "signin_phone": "Phone number",
+  "@signin_phone": {
+    "description": "Signin phone number text field placeholder"
+  },
+  "signin_verify": "Verify code",
+  "@signin_verify": {
+    "description": "Signin verify code text field placeholder"
+  },
+  "signin_confirm": "Verify",
+  "@signin_confirm": {
+    "description": "Signin confirm button"
+  },
+  "signin_edit_phone": "Edit phone",
+  "@signin_edit_phone": {
+    "description": "Signin edit phone number button"
+  },
+  "signin_send_verify": "Send verify code",
+  "@signin_send_verify": {
+    "description": "Signin send verify code button"
+  },
+
+  "signup_title": "Signup",
+  "@signup_title": {
+    "description": "Signup title"
+  },
+  "signup_guide": "Please enter a few details to get started.",
+  "@signup_guide": {
+    "description": "Signup guide"
+  },
+  "signup_profile_label": "Profile",
+  "@signup_profile_label": {
+    "description": "Signup profile label"
+  },
+  "signup_profile_nickname": "Nickname",
+  "@signup_profile_nickname": {
+    "description": "Signup profile nickname text field placeholder"
+  },
+  "signup_profile_nickname_supporting": "Please enter 3 to 8 characters",
+  "@signup_profile_nickname_supporting": {
+    "description": "Signup profile nickname supporting text"
+  },
+  "signup_profile_nickname_error": "Nickname must be 3 to 8 characters",
+  "@signup_profile_nickname_error": {
+    "description": "Signup profile nickname error text"
+  },
+  "signup_agree_poilcy": "I agree to the {termsOfService} and {privacyPolicy}.",
+  "@signup_agree_poilcy": {
+    "description": "Signup agree poilcy",
+    "placeholders": {
+      "termsOfService": {
+        "type": "String",
+        "example": "Terms of Service"
+      },
+      "privacyPolicy": {
+        "type": "String",
+        "example": "Privacy Policy"
+      }
+    }
+  },
+  "signup_agree_policy_terms_of_service": "Terms of Service",
+  "@signup_agree_policy_terms_of_service": {
+    "description": "Signup agree poilcy terms of service"
+  },
+  "signup_agree_policy_privacy_policy": "Privacy Policy",
+  "@signup_agree_policy_privacy_policy": {
+    "description": "Signup agree poilcy privacy policy"
+  },
+  "signup_agree_policy_error": "Please agree to the terms of service and privacy policy",
+  "@signup_agree_policy_error": {
+    "description": "Signup agree poilcy error text"
+  },
+  "signup_confirm": "Signup",
+  "@signup_confirm": {
+    "description": "Signup confirm button"
+  }
+
+}

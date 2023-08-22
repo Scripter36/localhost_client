@@ -1,0 +1,26 @@
+{
+  "title": "로컬호스트",
+  "description": "지역 공동구매 플랫폼",
+  
+  "start_confirm": "휴대폰 번호로 시작하기",
+
+  "signin_title": "로그인",
+  "signin_phone": "전화번호",
+  "signin_verify": "인증번호",
+  "signin_confirm": "확인",
+  "signin_edit_phone": "전화번호 수정",
+  "signin_send_verify": "인증번호 발송",
+
+  "signup_title": "회원가입",
+  "signup_guide": "몇 가지 정보만 입력하면 이용할 수 있어요.",
+  "signup_profile_label": "프로필",
+  "signup_profile_nickname": "닉네임",
+  "signup_profile_nickname_supporting": "3~8자로 입력해 주세요.",
+  "signup_profile_nickname_error": "닉네임은 3~8자여야 합니다.",
+  "signup_agree_poilcy": "{privacyPolicy} 및 {termsOfService}에 동의합니다.",
+  "signup_agree_policy_terms_of_service": "이용 약관",
+  "signup_agree_policy_privacy_policy": "개인정보처리방침",
+  "signup_agree_policy_error": "필수 약관에 동의해 주세요.",
+  "signup_confirm": "가입 완료"
+  
+}
