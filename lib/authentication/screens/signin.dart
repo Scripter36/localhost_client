@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:localhost/start/screens/signup.dart';
+import 'package:localhost/authentication/screens/signup.dart';
 import 'package:localhost/utils/route_builders.dart';
 
 class SigninPage extends StatefulWidget {
@@ -40,9 +40,7 @@ class _SigninPageState extends State<SigninPage> {
   void _verifyCode(String verifyCode) {
     // TODO: verify code. if failed, show snackbar. else, if registered, go to home. else, go to register.
     Navigator.of(context).pushAndRemoveUntil(
-        RouteBuilders.sharedAxisTransition(
-            const SignupPage(), SharedAxisTransitionType.horizontal),
-        (route) => false);
+        RouteBuilders.sharedAxisTransition(const SignupPage(), SharedAxisTransitionType.horizontal), (route) => false);
   }
 
   @override
@@ -61,9 +59,8 @@ class _SigninPageState extends State<SigninPage> {
               TextField(
                 autofocus: true,
                 enabled: !_sentVerifyCode,
-                decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: appLocalizations.signin_phone),
+                decoration:
+                    InputDecoration(border: const OutlineInputBorder(), labelText: appLocalizations.signin_phone),
                 controller: _phoneController,
                 keyboardType: TextInputType.phone,
                 onSubmitted: (phone) => _sendVerifyCode(phone),
@@ -72,9 +69,8 @@ class _SigninPageState extends State<SigninPage> {
               if (_sentVerifyCode)
                 TextField(
                   autofocus: true,
-                  decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: appLocalizations.signin_verify),
+                  decoration:
+                      InputDecoration(border: const OutlineInputBorder(), labelText: appLocalizations.signin_verify),
                   controller: _verifyCodeController,
                   keyboardType: TextInputType.number,
                   maxLength: 6,
@@ -108,9 +104,8 @@ class _SigninPageState extends State<SigninPage> {
                           _sendVerifyCode(_phoneController.text);
                         }
                       },
-                      child: Text(_sentVerifyCode
-                          ? appLocalizations.signin_confirm
-                          : appLocalizations.signin_send_verify),
+                      child:
+                          Text(_sentVerifyCode ? appLocalizations.signin_confirm : appLocalizations.signin_send_verify),
                     ),
                   ),
                 ],

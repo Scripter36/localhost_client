@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:localhost/home/screens/home.dart';
+import 'package:localhost/common/screens/home.dart';
 import 'package:localhost/utils/route_builders.dart';
 
 class SignupPage extends StatefulWidget {
@@ -28,9 +28,7 @@ class _SignupState extends State<SignupPage> {
 
   void _signup() {
     // TODO: check nickname and agree policy, and signup
-    Navigator.of(context).pushAndRemoveUntil(
-        RouteBuilders.fadeThroughTransition(const HomePage()),
-        (route) => false);
+    Navigator.of(context).pushAndRemoveUntil(RouteBuilders.fadeThroughTransition(const HomePage()), (route) => false);
   }
 
   @override
@@ -56,22 +54,19 @@ class _SignupState extends State<SignupPage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(appLocalizations.signup_guide,
-                              style: textTheme.bodyMedium),
+                          child: Text(appLocalizations.signup_guide, style: textTheme.bodyMedium),
                         ),
                         const SizedBox(height: 16),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(appLocalizations.signup_profile,
-                              style: textTheme.labelLarge),
+                          child: Text(appLocalizations.signup_profile, style: textTheme.labelLarge),
                         ),
                         const SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Image.asset('assets/images/default_image.png',
-                                width: 160, height: 160),
+                            Image.asset('assets/images/default_image.png', width: 160, height: 160),
                           ],
                         ),
                         const SizedBox(height: 16),
@@ -80,18 +75,15 @@ class _SignupState extends State<SignupPage> {
                           child: TextField(
                             decoration: InputDecoration(
                               border: const OutlineInputBorder(),
-                              labelText:
-                                  appLocalizations.signup_profile_nickname,
-                              helperText: appLocalizations
-                                  .signup_profile_nickname_supporting,
+                              labelText: appLocalizations.signup_profile_nickname,
+                              helperText: appLocalizations.signup_profile_nickname_supporting,
                             ),
                             controller: _nickNameController,
                           ),
                         ),
                         const SizedBox(height: 8),
                         InkWell(
-                          onTap: () =>
-                              setState(() => _agreePolicy = !_agreePolicy),
+                          onTap: () => setState(() => _agreePolicy = !_agreePolicy),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: Row(
@@ -106,10 +98,8 @@ class _SignupState extends State<SignupPage> {
                                 Expanded(
                                     child: Text(
                                   appLocalizations.signup_agree_poilcy(
-                                      appLocalizations
-                                          .signup_agree_policy_terms_of_service,
-                                      appLocalizations
-                                          .signup_agree_policy_privacy_policy),
+                                      appLocalizations.signup_agree_policy_terms_of_service,
+                                      appLocalizations.signup_agree_policy_privacy_policy),
                                   style: textTheme.bodyMedium,
                                 )),
                               ],

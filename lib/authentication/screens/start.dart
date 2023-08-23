@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:localhost/start/screens/signin.dart';
+import 'package:localhost/authentication/screens/signin.dart';
 import 'package:localhost/utils/route_builders.dart';
 
 class StartPage extends StatelessWidget {
@@ -19,18 +19,15 @@ class StartPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Spacer(),
-              Text(appLocalizations.title,
-                  style: Theme.of(context).textTheme.titleLarge,
-                  textAlign: TextAlign.center),
+              Text(appLocalizations.title, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center),
               const SizedBox(height: 8),
               Text(appLocalizations.description,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textAlign: TextAlign.center),
+                  style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
               const Spacer(),
               FilledButton(
                 onPressed: () {
-                  Navigator.of(context).push(RouteBuilders.sharedAxisTransition(
-                      const SigninPage(), SharedAxisTransitionType.horizontal));
+                  Navigator.of(context).push(
+                      RouteBuilders.sharedAxisTransition(const SigninPage(), SharedAxisTransitionType.horizontal));
                 },
                 child: Text(appLocalizations.start_confirm),
               ),
