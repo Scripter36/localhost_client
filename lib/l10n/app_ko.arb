@@ -22,7 +22,7 @@
   "product_list_bottom_name": "홈",
   "time_ago": "{time} 전",
   "product_item_price": "{remain_price} / {price}원",
-  "price_per_unit": "{amount}{unit}당 {price}",
+  "price_per_unit": "{amount}{unit}당 {price}원",
   "product_detail_rating_short": "{average} ({count})",
   "product_detail_desired_location": "거래희망장소",
   "product_detail_location_distance": "{distance}{unit} 근처에서 거래할 수 있어요.",

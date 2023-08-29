@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-enum ProductState {
-  normal,
-  completeMatching,
-  completePurchase,
-  finished,
-}
+import 'package:localhost/product/models/products.dart';
 
 class ProductStateBadge extends StatelessWidget {
   final ProductState state;
