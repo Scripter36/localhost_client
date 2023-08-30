@@ -1,32 +1,39 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:localhost/authentication/screens/signup.dart';
 import 'package:localhost/utils/route_builders.dart';
 
-class SigninPage extends StatefulWidget {
+class SigninPage extends ConsumerStatefulWidget {
   const SigninPage({super.key});
 
   @override
   _SigninPageState createState() => _SigninPageState();
 }
 
-class _SigninPageState extends State<SigninPage> {
+class _SigninPageState extends ConsumerState<SigninPage> {
   bool _sentVerifyCode = false;
   late TextEditingController _phoneController;
   late TextEditingController _verifyCodeController;
+  late FocusNode _phoneFocusNode;
+  late FocusNode _verifyCodeFocusNode;
 
   @override
   void initState() {
     super.initState();
     _phoneController = TextEditingController();
     _verifyCodeController = TextEditingController();
+    _phoneFocusNode = FocusNode();
+    _verifyCodeFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
     _phoneController.dispose();
     _verifyCodeController.dispose();
+    _phoneFocusNode.dispose();
+    _verifyCodeFocusNode.dispose();
     super.dispose();
   }
 
@@ -46,6 +53,15 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     var appLocalizations = AppLocalizations.of(context)!;
+    if (_sentVerifyCode) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _verifyCodeFocusNode.requestFocus();
+      });
+    } else {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _phoneFocusNode.requestFocus();
+      });
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.signin_title),
@@ -57,7 +73,8 @@ class _SigninPageState extends State<SigninPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextField(
-                autofocus: true,
+                focusNode: _phoneFocusNode,
+                autofocus: !_sentVerifyCode,
                 enabled: !_sentVerifyCode,
                 decoration:
                     InputDecoration(border: const OutlineInputBorder(), labelText: appLocalizations.signin_phone),
@@ -68,6 +85,7 @@ class _SigninPageState extends State<SigninPage> {
               const SizedBox(height: 16),
               if (_sentVerifyCode)
                 TextField(
+                  focusNode: _verifyCodeFocusNode,
                   autofocus: true,
                   decoration:
                       InputDecoration(border: const OutlineInputBorder(), labelText: appLocalizations.signin_verify),

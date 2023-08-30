@@ -51,7 +51,7 @@ const _$ProductStateEnumMap = {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productsHash() => r'3b10fb1e65a51201f5076e1e9e4b5ee56fd2bac2';
+String _$productsHash() => r'6c8583b75ce6767029d17cf83f80cd80ec3b2057';
 
 /// See also [Products].
 @ProviderFor(Products)

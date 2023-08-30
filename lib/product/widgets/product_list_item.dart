@@ -26,6 +26,16 @@ class ProductListItem extends ConsumerWidget {
                     data.thumbnailUrl,
                     width: 100,
                     height: 100,
+                    frameBuilder: (context, child, frame, wasSynchronouslyLoaded) => Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surfaceVariant,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      clipBehavior: Clip.antiAlias,
+                      child: child,
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -37,16 +47,17 @@ class ProductListItem extends ConsumerWidget {
                             TextSpan(children: [
                               if (data.state != ProductState.normal)
                                 WidgetSpan(
-                                    child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
-                                        child: ProductStateBadge(data.state)),
-                                    alignment: PlaceholderAlignment.middle),
+                                  child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
+                                      child: ProductStateBadge(data.state, ignoreScaleFactor: true)),
+                                  alignment: PlaceholderAlignment.middle,
+                                ),
                               TextSpan(text: data.title, style: Theme.of(context).textTheme.titleMedium)
                             ]),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis),
                         Text(
-                          '${data.location} · ${Jiffy.parseFromDateTime(data.createdAt).to(Jiffy.now())}',
+                          '${data.location} · ${Jiffy.parseFromDateTime(data.createdAt).from(Jiffy.now())}',
                           style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary),
                         ),
                         const SizedBox(height: 4),
@@ -57,7 +68,7 @@ class ProductListItem extends ConsumerWidget {
                             TextSpan(
                               text:
                                   ' (${appLocalizations.price_per_unit(data.pricePerStandardUnit, data.standardUnitAmount, data.unit)})',
-                              style: Theme.of(context).textTheme.labelLarge,
+                              style: Theme.of(context).textTheme.labelMedium,
                             ),
                           ],
                         )),

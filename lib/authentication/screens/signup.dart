@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:localhost/common/screens/home.dart';
@@ -88,6 +90,7 @@ class _SignupState extends State<SignupPage> {
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: Row(
                               children: [
+                                if (Platform.isIOS) const SizedBox(width: 4),
                                 Checkbox.adaptive(
                                     value: _agreePolicy,
                                     onChanged: (value) {
