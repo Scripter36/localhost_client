@@ -43,5 +43,7 @@
   "product_amount_total": "총 금액",
   "product_amount_total_price": "{price}원",
   "product_amount_cancel": "취소",
-  "product_amount_purchase": "결제하기"
+  "product_amount_purchase": "결제하기",
+  "report_product": "신고하기",
+  "block_user": "차단하기"
 }

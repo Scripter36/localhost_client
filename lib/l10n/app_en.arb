@@ -327,5 +327,13 @@
   "product_amount_purchase": "Purchase",
   "@product_amount_purchase": {
     "description": "Product amount purchase button"
+  },
+  "report_product": "Report",
+  "@report_product": {
+    "description": "Report product button"
+  },
+  "block_user": "Block",
+  "@block_user": {
+    "description": "Block user button"
   }
 }

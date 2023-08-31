@@ -49,6 +49,11 @@ class _MainState extends ConsumerState<Main> with WidgetsBindingObserver {
         useMaterial3: true,
         fontFamily: 'Pretendard',
       ),
+      darkTheme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF006494), brightness: Brightness.dark),
+          useMaterial3: true,
+          fontFamily: 'Pretendard',
+          brightness: Brightness.dark),
       home: const StartPage(),
     );
   }

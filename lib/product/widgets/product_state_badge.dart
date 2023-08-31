@@ -27,8 +27,8 @@ class ProductStateBadge extends StatelessWidget {
                       : appLocalizations.product_state_finished,
           style: theme.textTheme.labelMedium?.copyWith(
               fontSize: ignoreScaleFactor
-                  ? theme.textTheme.labelMedium!.fontSize
-                  : theme.textTheme.labelMedium!.fontSize! / MediaQuery.of(context).textScaleFactor,
+                  ? theme.textTheme.labelMedium!.fontSize! / MediaQuery.of(context).textScaleFactor
+                  : theme.textTheme.labelMedium!.fontSize,
               color: state == ProductState.finished
                   ? theme.colorScheme.onSurfaceVariant
                   : theme.colorScheme.onTertiaryContainer)),

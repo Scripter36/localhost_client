@@ -1,9 +1,13 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:localhost/product/models/products.dart';
+import 'package:localhost/product/screens/product.dart';
 import 'package:localhost/product/widgets/product_state_badge.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:localhost/utils/route_builders.dart';
+import 'package:localhost/utils/tweens.dart';
 
 class ProductListItem extends ConsumerWidget {
   final int index;
@@ -22,20 +26,26 @@ class ProductListItem extends ConsumerWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(
-                    data.thumbnailUrl,
-                    width: 100,
-                    height: 100,
-                    frameBuilder: (context, child, frame, wasSynchronouslyLoaded) => Container(
+                  Hero(
+                    tag: 'product_image_${data.productId}',
+                    child: Image.network(
+                      data.thumbnailUrl,
                       width: 100,
                       height: 100,
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.surfaceVariant,
-                        borderRadius: BorderRadius.circular(12),
+                      frameBuilder: (context, child, frame, wasSynchronouslyLoaded) => Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surfaceVariant,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: child,
                       ),
-                      clipBehavior: Clip.antiAlias,
-                      child: child,
                     ),
+                    createRectTween: (begin, end) {
+                      return RectCurveTween(begin: begin, end: end, curve: const Cubic(0.2, 0, 0, 1));
+                    },
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -74,7 +84,7 @@ class ProductListItem extends ConsumerWidget {
                           ],
                         )),
                         // const Spacer(),
-                        const SizedBox(height: 16) // for bottom state bar
+                        SizedBox(height: 16 * MediaQuery.of(context).textScaleFactor) // for bottom state bar
                       ],
                     ),
                   ),
@@ -86,7 +96,7 @@ class ProductListItem extends ConsumerWidget {
                 child: Text.rich(TextSpan(children: [
                   WidgetSpan(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
                       child: Icon(Icons.favorite_outline,
                           color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
                     ),
@@ -98,7 +108,7 @@ class ProductListItem extends ConsumerWidget {
                   const WidgetSpan(child: SizedBox(width: 4)),
                   WidgetSpan(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
                       child: Icon(Icons.person_outline,
                           color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
                     ),
@@ -111,7 +121,15 @@ class ProductListItem extends ConsumerWidget {
               )
             ],
           )),
-      onTap: () {},
+      onTap: () {
+        // open product detail
+        Navigator.of(context).push(RouteBuilders.sharedAxisTransition(
+          ProductPage(data.productId, thumbnailUrl: data.thumbnailUrl, title: data.title, state: data.state),
+          SharedAxisTransitionType.horizontal,
+          transitionDuration: const Duration(milliseconds: 500),
+          reverseTransitionDuration: const Duration(milliseconds: 500),
+        ));
+      },
     );
   }
 }

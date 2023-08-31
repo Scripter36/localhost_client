@@ -9,6 +9,7 @@ part of 'products.dart';
 _$_ProductListItemData _$$_ProductListItemDataFromJson(
         Map<String, dynamic> json) =>
     _$_ProductListItemData(
+      productId: json['productId'] as int,
       thumbnailUrl: json['thumbnailUrl'] as String,
       state: $enumDecode(_$ProductStateEnumMap, json['state']),
       title: json['title'] as String,
@@ -26,6 +27,7 @@ _$_ProductListItemData _$$_ProductListItemDataFromJson(
 Map<String, dynamic> _$$_ProductListItemDataToJson(
         _$_ProductListItemData instance) =>
     <String, dynamic>{
+      'productId': instance.productId,
       'thumbnailUrl': instance.thumbnailUrl,
       'state': _$ProductStateEnumMap[instance.state]!,
       'title': instance.title,
@@ -51,7 +53,7 @@ const _$ProductStateEnumMap = {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productsHash() => r'6c8583b75ce6767029d17cf83f80cd80ec3b2057';
+String _$productsHash() => r'c9aa4c6c15626400529c8b3e986a21c79fe73ffd';
 
 /// See also [Products].
 @ProviderFor(Products)

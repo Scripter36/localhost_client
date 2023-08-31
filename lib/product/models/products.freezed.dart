@@ -20,6 +20,7 @@ ProductListItemData _$ProductListItemDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductListItemData {
+  int get productId => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   ProductState get state => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -46,7 +47,8 @@ abstract class $ProductListItemDataCopyWith<$Res> {
       _$ProductListItemDataCopyWithImpl<$Res, ProductListItemData>;
   @useResult
   $Res call(
-      {String thumbnailUrl,
+      {int productId,
+      String thumbnailUrl,
       ProductState state,
       String title,
       String location,
@@ -73,6 +75,7 @@ class _$ProductListItemDataCopyWithImpl<$Res, $Val extends ProductListItemData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? productId = null,
     Object? thumbnailUrl = null,
     Object? state = null,
     Object? title = null,
@@ -87,6 +90,10 @@ class _$ProductListItemDataCopyWithImpl<$Res, $Val extends ProductListItemData>
     Object? participantCount = null,
   }) {
     return _then(_value.copyWith(
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as int,
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
@@ -148,7 +155,8 @@ abstract class _$$_ProductListItemDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String thumbnailUrl,
+      {int productId,
+      String thumbnailUrl,
       ProductState state,
       String title,
       String location,
@@ -173,6 +181,7 @@ class __$$_ProductListItemDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? productId = null,
     Object? thumbnailUrl = null,
     Object? state = null,
     Object? title = null,
@@ -187,6 +196,10 @@ class __$$_ProductListItemDataCopyWithImpl<$Res>
     Object? participantCount = null,
   }) {
     return _then(_$_ProductListItemData(
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as int,
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
@@ -243,7 +256,8 @@ class __$$_ProductListItemDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ProductListItemData implements _ProductListItemData {
   const _$_ProductListItemData(
-      {required this.thumbnailUrl,
+      {required this.productId,
+      required this.thumbnailUrl,
       required this.state,
       required this.title,
       required this.location,
@@ -259,6 +273,8 @@ class _$_ProductListItemData implements _ProductListItemData {
   factory _$_ProductListItemData.fromJson(Map<String, dynamic> json) =>
       _$$_ProductListItemDataFromJson(json);
 
+  @override
+  final int productId;
   @override
   final String thumbnailUrl;
   @override
@@ -286,7 +302,7 @@ class _$_ProductListItemData implements _ProductListItemData {
 
   @override
   String toString() {
-    return 'ProductListItemData(thumbnailUrl: $thumbnailUrl, state: $state, title: $title, location: $location, createdAt: $createdAt, price: $price, remainPrice: $remainPrice, unit: $unit, standardUnitAmount: $standardUnitAmount, pricePerStandardUnit: $pricePerStandardUnit, favoriteCount: $favoriteCount, participantCount: $participantCount)';
+    return 'ProductListItemData(productId: $productId, thumbnailUrl: $thumbnailUrl, state: $state, title: $title, location: $location, createdAt: $createdAt, price: $price, remainPrice: $remainPrice, unit: $unit, standardUnitAmount: $standardUnitAmount, pricePerStandardUnit: $pricePerStandardUnit, favoriteCount: $favoriteCount, participantCount: $participantCount)';
   }
 
   @override
@@ -294,6 +310,8 @@ class _$_ProductListItemData implements _ProductListItemData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductListItemData &&
+            (identical(other.productId, productId) ||
+                other.productId == productId) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.state, state) || other.state == state) &&
@@ -320,6 +338,7 @@ class _$_ProductListItemData implements _ProductListItemData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      productId,
       thumbnailUrl,
       state,
       title,
@@ -350,7 +369,8 @@ class _$_ProductListItemData implements _ProductListItemData {
 
 abstract class _ProductListItemData implements ProductListItemData {
   const factory _ProductListItemData(
-      {required final String thumbnailUrl,
+      {required final int productId,
+      required final String thumbnailUrl,
       required final ProductState state,
       required final String title,
       required final String location,
@@ -366,6 +386,8 @@ abstract class _ProductListItemData implements ProductListItemData {
   factory _ProductListItemData.fromJson(Map<String, dynamic> json) =
       _$_ProductListItemData.fromJson;
 
+  @override
+  int get productId;
   @override
   String get thumbnailUrl;
   @override
