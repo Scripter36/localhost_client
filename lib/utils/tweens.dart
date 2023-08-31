@@ -32,3 +32,25 @@ class RectCurveSeparateTween extends RectCurveTween {
     return Rect.fromCenter(center: Offset(x, y), width: xSize, height: ySize);
   }
 }
+
+class AnimatedBorderRadiusContainer extends AnimatedWidget {
+  final Widget? child;
+  final double from;
+  final double to;
+
+  const AnimatedBorderRadiusContainer({
+    super.key,
+    required Animation<double> animation,
+    required this.from,
+    required this.to,
+    this.child,
+  }) : super(listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(from + (to - from) * (listenable as Animation<double>).value),
+      child: child,
+    );
+  }
+}

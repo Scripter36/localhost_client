@@ -26,26 +26,36 @@ class ProductListItem extends ConsumerWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Hero(
-                    tag: 'product_image_${data.productId}',
-                    child: Image.network(
-                      data.thumbnailUrl,
-                      width: 100,
-                      height: 100,
-                      frameBuilder: (context, child, frame, wasSynchronouslyLoaded) => Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.surfaceVariant,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                        child: child,
-                      ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    createRectTween: (begin, end) {
-                      return RectCurveTween(begin: begin, end: end, curve: const Cubic(0.2, 0, 0, 1));
-                    },
+                    clipBehavior: Clip.antiAlias,
+                    child: Hero(
+                      tag: 'product_image_${data.productId}',
+                      child: Image.network(
+                        data.thumbnailUrl,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        frameBuilder: (context, child, frame, wasSynchronouslyLoaded) =>
+                            Container(color: theme.colorScheme.surfaceVariant, child: child),
+                      ),
+                      createRectTween: (begin, end) {
+                        return RectCurveTween(begin: begin, end: end, curve: const Cubic(0.2, 0, 0, 1));
+                      },
+                      flightShuttleBuilder:
+                          (flightContext, animation, flightDirection, fromHeroContext, toHeroContext) {
+                        final Hero toHero = toHeroContext.widget as Hero;
+                        return AnimatedBorderRadiusContainer(
+                          animation: animation,
+                          from: 12,
+                          to: 0,
+                          child: toHero.child,
+                        );
+                      },
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
