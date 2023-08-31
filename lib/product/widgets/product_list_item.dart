@@ -56,6 +56,7 @@ class ProductListItem extends ConsumerWidget {
                             ]),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis),
+                        const SizedBox(height: 2),
                         Text(
                           '${data.location} · ${Jiffy.parseFromDateTime(data.createdAt).from(Jiffy.now())}',
                           style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary),
@@ -82,22 +83,31 @@ class ProductListItem extends ConsumerWidget {
               Positioned(
                 right: 0,
                 bottom: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(Icons.favorite_outline,
-                        color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
-                    const SizedBox(width: 1),
-                    Text(data.favoriteCount.toString(),
-                        style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
-                    const SizedBox(width: 4),
-                    Icon(Icons.person_outline,
-                        color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
-                    const SizedBox(width: 1),
-                    Text(data.participantCount.toString(),
-                        style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
-                  ],
-                ),
+                child: Text.rich(TextSpan(children: [
+                  WidgetSpan(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
+                      child: Icon(Icons.favorite_outline,
+                          color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
+                    ),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                  TextSpan(
+                      text: data.favoriteCount.toString(),
+                      style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
+                  const WidgetSpan(child: SizedBox(width: 4)),
+                  WidgetSpan(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
+                      child: Icon(Icons.person_outline,
+                          color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
+                    ),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                  TextSpan(
+                      text: data.participantCount.toString(),
+                      style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
+                ])),
               )
             ],
           )),
