@@ -29,6 +29,7 @@ mixin _$ProductData {
   int get authorRatingCount => throw _privateConstructorUsedError;
   ProductState get state => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  Category get category => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   int get price => throw _privateConstructorUsedError;
@@ -41,7 +42,7 @@ mixin _$ProductData {
   int get favoriteCount => throw _privateConstructorUsedError;
   int get participantCount => throw _privateConstructorUsedError;
   int get viewCount => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
   String? get desiredLocationName => throw _privateConstructorUsedError;
   String? get desiredLocation => throw _privateConstructorUsedError;
 
@@ -67,6 +68,7 @@ abstract class $ProductDataCopyWith<$Res> {
       int authorRatingCount,
       ProductState state,
       String title,
+      Category category,
       String location,
       DateTime createdAt,
       int price,
@@ -79,7 +81,7 @@ abstract class $ProductDataCopyWith<$Res> {
       int favoriteCount,
       int participantCount,
       int viewCount,
-      String? content,
+      String content,
       String? desiredLocationName,
       String? desiredLocation});
 }
@@ -106,6 +108,7 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
     Object? authorRatingCount = null,
     Object? state = null,
     Object? title = null,
+    Object? category = null,
     Object? location = null,
     Object? createdAt = null,
     Object? price = null,
@@ -118,7 +121,7 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
     Object? favoriteCount = null,
     Object? participantCount = null,
     Object? viewCount = null,
-    Object? content = freezed,
+    Object? content = null,
     Object? desiredLocationName = freezed,
     Object? desiredLocation = freezed,
   }) {
@@ -159,6 +162,10 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -207,10 +214,10 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
           ? _value.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
               as int,
-      content: freezed == content
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       desiredLocationName: freezed == desiredLocationName
           ? _value.desiredLocationName
           : desiredLocationName // ignore: cast_nullable_to_non_nullable
@@ -241,6 +248,7 @@ abstract class _$$_ProductDataCopyWith<$Res>
       int authorRatingCount,
       ProductState state,
       String title,
+      Category category,
       String location,
       DateTime createdAt,
       int price,
@@ -253,7 +261,7 @@ abstract class _$$_ProductDataCopyWith<$Res>
       int favoriteCount,
       int participantCount,
       int viewCount,
-      String? content,
+      String content,
       String? desiredLocationName,
       String? desiredLocation});
 }
@@ -278,6 +286,7 @@ class __$$_ProductDataCopyWithImpl<$Res>
     Object? authorRatingCount = null,
     Object? state = null,
     Object? title = null,
+    Object? category = null,
     Object? location = null,
     Object? createdAt = null,
     Object? price = null,
@@ -290,7 +299,7 @@ class __$$_ProductDataCopyWithImpl<$Res>
     Object? favoriteCount = null,
     Object? participantCount = null,
     Object? viewCount = null,
-    Object? content = freezed,
+    Object? content = null,
     Object? desiredLocationName = freezed,
     Object? desiredLocation = freezed,
   }) {
@@ -331,6 +340,10 @@ class __$$_ProductDataCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -379,10 +392,10 @@ class __$$_ProductDataCopyWithImpl<$Res>
           ? _value.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
               as int,
-      content: freezed == content
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       desiredLocationName: freezed == desiredLocationName
           ? _value.desiredLocationName
           : desiredLocationName // ignore: cast_nullable_to_non_nullable
@@ -408,6 +421,7 @@ class _$_ProductData implements _ProductData {
       required this.authorRatingCount,
       required this.state,
       required this.title,
+      required this.category,
       required this.location,
       required this.createdAt,
       required this.price,
@@ -420,7 +434,7 @@ class _$_ProductData implements _ProductData {
       required this.favoriteCount,
       required this.participantCount,
       required this.viewCount,
-      this.content,
+      required this.content,
       this.desiredLocationName,
       this.desiredLocation})
       : _imageUrls = imageUrls;
@@ -453,6 +467,8 @@ class _$_ProductData implements _ProductData {
   @override
   final String title;
   @override
+  final Category category;
+  @override
   final String location;
   @override
   final DateTime createdAt;
@@ -477,7 +493,7 @@ class _$_ProductData implements _ProductData {
   @override
   final int viewCount;
   @override
-  final String? content;
+  final String content;
   @override
   final String? desiredLocationName;
   @override
@@ -485,7 +501,7 @@ class _$_ProductData implements _ProductData {
 
   @override
   String toString() {
-    return 'ProductData(productId: $productId, imageUrls: $imageUrls, authorProfileImageUrl: $authorProfileImageUrl, authorId: $authorId, authorName: $authorName, authorRating: $authorRating, authorRatingCount: $authorRatingCount, state: $state, title: $title, location: $location, createdAt: $createdAt, price: $price, remainPrice: $remainPrice, unit: $unit, standardUnitAmount: $standardUnitAmount, pricePerStandardUnit: $pricePerStandardUnit, minimumAmount: $minimumAmount, incrementAmount: $incrementAmount, favoriteCount: $favoriteCount, participantCount: $participantCount, viewCount: $viewCount, content: $content, desiredLocationName: $desiredLocationName, desiredLocation: $desiredLocation)';
+    return 'ProductData(productId: $productId, imageUrls: $imageUrls, authorProfileImageUrl: $authorProfileImageUrl, authorId: $authorId, authorName: $authorName, authorRating: $authorRating, authorRatingCount: $authorRatingCount, state: $state, title: $title, category: $category, location: $location, createdAt: $createdAt, price: $price, remainPrice: $remainPrice, unit: $unit, standardUnitAmount: $standardUnitAmount, pricePerStandardUnit: $pricePerStandardUnit, minimumAmount: $minimumAmount, incrementAmount: $incrementAmount, favoriteCount: $favoriteCount, participantCount: $participantCount, viewCount: $viewCount, content: $content, desiredLocationName: $desiredLocationName, desiredLocation: $desiredLocation)';
   }
 
   @override
@@ -509,6 +525,8 @@ class _$_ProductData implements _ProductData {
                 other.authorRatingCount == authorRatingCount) &&
             (identical(other.state, state) || other.state == state) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.createdAt, createdAt) ||
@@ -551,6 +569,7 @@ class _$_ProductData implements _ProductData {
         authorRatingCount,
         state,
         title,
+        category,
         location,
         createdAt,
         price,
@@ -593,6 +612,7 @@ abstract class _ProductData implements ProductData {
       required final int authorRatingCount,
       required final ProductState state,
       required final String title,
+      required final Category category,
       required final String location,
       required final DateTime createdAt,
       required final int price,
@@ -605,7 +625,7 @@ abstract class _ProductData implements ProductData {
       required final int favoriteCount,
       required final int participantCount,
       required final int viewCount,
-      final String? content,
+      required final String content,
       final String? desiredLocationName,
       final String? desiredLocation}) = _$_ProductData;
 
@@ -631,6 +651,8 @@ abstract class _ProductData implements ProductData {
   @override
   String get title;
   @override
+  Category get category;
+  @override
   String get location;
   @override
   DateTime get createdAt;
@@ -655,7 +677,7 @@ abstract class _ProductData implements ProductData {
   @override
   int get viewCount;
   @override
-  String? get content;
+  String get content;
   @override
   String? get desiredLocationName;
   @override

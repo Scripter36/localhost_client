@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:localhost/chat/screens/chat_list.dart';
 import 'package:localhost/mypage/screens/mypage.dart';
 import 'package:localhost/product/screens/product_list.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (index) {
@@ -24,21 +26,21 @@ class _HomePageState extends State<HomePage> {
           });
         },
         selectedIndex: _selectedIndex,
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home),
-            selectedIcon: Icon(Icons.home_filled),
-            label: 'Home',
+            icon: const Icon(Icons.home),
+            selectedIcon: const Icon(Icons.home_filled),
+            label: appLocalizations.bottom_navigation_home,
           ),
           NavigationDestination(
-            icon: Icon(Icons.chat_bubble_outline),
-            selectedIcon: Icon(Icons.chat_bubble),
-            label: 'Chat',
+            icon: const Icon(Icons.chat_bubble_outline),
+            selectedIcon: const Icon(Icons.chat_bubble),
+            label: appLocalizations.bottom_navigation_chat,
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
-            label: 'Mypage',
+            icon: const Icon(Icons.person_outline),
+            selectedIcon: const Icon(Icons.person),
+            label: appLocalizations.bottom_navigation_mypage,
           ),
         ],
       ),

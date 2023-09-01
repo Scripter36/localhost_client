@@ -1,13 +1,11 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:localhost/common/screens/home.dart';
 import 'package:localhost/product/models/product_detail.dart';
 import 'package:localhost/product/models/products.dart';
-import 'package:localhost/utils/route_builders.dart';
+import 'package:localhost/product/widgets/product_body.dart';
 import 'package:localhost/utils/tweens.dart';
 
 class ProductPage extends ConsumerStatefulWidget {
@@ -25,7 +23,10 @@ class ProductPage extends ConsumerStatefulWidget {
 class _ProductPageState extends ConsumerState<ProductPage> {
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     var appLocalizations = AppLocalizations.of(context)!;
+
+    // Load product data if not loaded
     final asyncProductData = ref.watch(productDetailProvider.select((value) => value[widget.productId]));
     if (asyncProductData == null) {
       WidgetsBinding.instance
@@ -129,7 +130,14 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                 ),
               ],
             ),
-          )
+          ),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: switch (asyncProductData) {
+              AsyncData(:final value) => ProductBody(value),
+              _ => const SizedBox.shrink(), // TODO: show shimmer
+            },
+          ),
         ],
       ),
       extendBodyBehindAppBar: true,

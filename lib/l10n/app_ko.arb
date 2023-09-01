@@ -45,5 +45,18 @@
   "product_amount_cancel": "취소",
   "product_amount_purchase": "결제하기",
   "report_product": "신고하기",
-  "block_user": "차단하기"
+  "block_user": "차단하기",
+  "bottom_navigation_home": "홈",
+  "bottom_navigation_chat": "채팅",
+  "bottom_navigation_mypage": "마이페이지",
+  "category_vegetable": "채소",
+  "category_fruit": "과일, 견과, 쌀",
+  "category_fish": "수산, 해산, 건어물",
+  "category_meat": "정육, 계란",
+  "category_processed": "가공식품",
+  "category_salad": "샐러드, 간편식",
+  "category_drink": "생수, 음료, 우유, 커피",
+  "category_health": "건강식품",
+  "category_living": "생활용품, 리빙, 캠핑",
+  "category_pet": "반려동물"
 }

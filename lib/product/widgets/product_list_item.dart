@@ -1,4 +1,3 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:localhost/product/models/products.dart';
@@ -133,9 +132,8 @@ class ProductListItem extends ConsumerWidget {
           )),
       onTap: () {
         // open product detail
-        Navigator.of(context).push(RouteBuilders.sharedAxisTransition(
+        Navigator.of(context).push(RouteBuilders.fadeThroughTransition(
           ProductPage(data.productId, thumbnailUrl: data.thumbnailUrl, title: data.title, state: data.state),
-          SharedAxisTransitionType.horizontal,
           transitionDuration: const Duration(milliseconds: 500),
           reverseTransitionDuration: const Duration(milliseconds: 500),
         ));

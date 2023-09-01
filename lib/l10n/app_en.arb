@@ -335,5 +335,57 @@
   "block_user": "Block",
   "@block_user": {
     "description": "Block user button"
+  },
+  "bottom_navigation_home": "Home",
+  "@bottom_navigation_home": {
+    "description": "Bottom navigation home label"
+  },
+  "bottom_navigation_chat": "Chat",
+  "@bottom_navigation_chat": {
+    "description": "Bottom navigation chat label"
+  },
+  "bottom_navigation_mypage": "My page",
+  "@bottom_navigation_mypage": {
+    "description": "Bottom navigation mypage label"
+  },
+  "category_vegetable": "Vegetable",
+  "@category_vegetable": {
+    "description": "Category vegetable label"
+  },
+  "category_fruit": "Fruit, nut, rice",
+  "@category_fruit": {
+    "description": "Category fruit label"
+  },
+  "category_fish": "Fish, seafood, dried fish",
+  "@category_fish": {
+    "description": "Category fish label"
+  },
+  "category_meat": "Meat, egg",
+  "@category_meat": {
+    "description": "Category meat label"
+  },
+  "category_processed": "Processed food",
+  "@category_processed": {
+    "description": "Category processed label"
+  },
+  "category_salad": "Salad, ready-to-eat",
+  "@category_salad": {
+    "description": "Category salad label"
+  },
+  "category_drink": "Water, beverage, milk, coffee",
+  "@category_drink": {
+    "description": "Category drink label"
+  },
+  "category_health": "Health food",
+  "@category_health": {
+    "description": "Category health label"
+  },
+  "category_living": "Living goods, living, camping",
+  "@category_living": {
+    "description": "Category living label"
+  },
+  "category_pet": "Pet",
+  "@category_pet": {
+    "description": "Category pet label"
   }
 }

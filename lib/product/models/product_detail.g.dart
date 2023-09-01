@@ -18,6 +18,7 @@ _$_ProductData _$$_ProductDataFromJson(Map<String, dynamic> json) =>
       authorRatingCount: json['authorRatingCount'] as int,
       state: $enumDecode(_$ProductStateEnumMap, json['state']),
       title: json['title'] as String,
+      category: $enumDecode(_$CategoryEnumMap, json['category']),
       location: json['location'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       price: json['price'] as int,
@@ -30,7 +31,7 @@ _$_ProductData _$$_ProductDataFromJson(Map<String, dynamic> json) =>
       favoriteCount: json['favoriteCount'] as int,
       participantCount: json['participantCount'] as int,
       viewCount: json['viewCount'] as int,
-      content: json['content'] as String?,
+      content: json['content'] as String,
       desiredLocationName: json['desiredLocationName'] as String?,
       desiredLocation: json['desiredLocation'] as String?,
     );
@@ -46,6 +47,7 @@ Map<String, dynamic> _$$_ProductDataToJson(_$_ProductData instance) =>
       'authorRatingCount': instance.authorRatingCount,
       'state': _$ProductStateEnumMap[instance.state]!,
       'title': instance.title,
+      'category': _$CategoryEnumMap[instance.category]!,
       'location': instance.location,
       'createdAt': instance.createdAt.toIso8601String(),
       'price': instance.price,
@@ -70,11 +72,24 @@ const _$ProductStateEnumMap = {
   ProductState.finished: 'finished',
 };
 
+const _$CategoryEnumMap = {
+  Category.vegetable: 'vegetable',
+  Category.fruit: 'fruit',
+  Category.fish: 'fish',
+  Category.meat: 'meat',
+  Category.processed: 'processed',
+  Category.salad: 'salad',
+  Category.drink: 'drink',
+  Category.health: 'health',
+  Category.living: 'living',
+  Category.pet: 'pet',
+};
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productDetailHash() => r'1d0cb0e482fd3c5e8fffa137d6b96dbb38297566';
+String _$productDetailHash() => r'84247a71e869b4a4abfa7cf8a594baead0892804';
 
 /// See also [ProductDetail].
 @ProviderFor(ProductDetail)
