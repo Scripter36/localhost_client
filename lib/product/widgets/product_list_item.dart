@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:localhost/product/models/products.dart';
@@ -32,28 +33,12 @@ class ProductListItem extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     clipBehavior: Clip.antiAlias,
-                    child: Hero(
-                      tag: 'product_image_${data.productId}',
-                      child: Image.network(
-                        data.thumbnailUrl,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                        frameBuilder: (context, child, frame, wasSynchronouslyLoaded) =>
-                            Container(color: theme.colorScheme.surfaceVariant, child: child),
-                      ),
-                      createRectTween: (begin, end) {
-                        return RectCurveTween(begin: begin, end: end, curve: const Cubic(0.2, 0, 0, 1));
-                      },
-                      flightShuttleBuilder:
-                          (flightContext, animation, flightDirection, fromHeroContext, toHeroContext) {
-                        final Hero toHero = toHeroContext.widget as Hero;
-                        return AnimatedBorderRadiusContainer(
-                          animation: animation,
-                          from: 12,
-                          to: 0,
-                          child: toHero.child,
-                        );
-                      },
+                    child: Image.network(
+                      data.thumbnailUrl,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      frameBuilder: (context, child, frame, wasSynchronouslyLoaded) =>
+                          Container(color: theme.colorScheme.surfaceVariant, child: child),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -132,10 +117,9 @@ class ProductListItem extends ConsumerWidget {
           )),
       onTap: () {
         // open product detail
-        Navigator.of(context).push(RouteBuilders.fadeThroughTransition(
+        Navigator.of(context).push(RouteBuilders.sharedAxisTransition(
           ProductPage(data.productId, thumbnailUrl: data.thumbnailUrl, title: data.title, state: data.state),
-          transitionDuration: const Duration(milliseconds: 500),
-          reverseTransitionDuration: const Duration(milliseconds: 500),
+          SharedAxisTransitionType.horizontal,
         ));
       },
     );

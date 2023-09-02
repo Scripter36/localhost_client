@@ -216,6 +216,56 @@
       }
     }
   },
+  "product_detail_price": "{remain_price} / {price} won",
+  "@product_detail_price": {
+    "description": "Product detail price label",
+    "placeholders": {
+      "remain_price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1,000"
+      },
+      "price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "10,000"
+      }
+    }
+  },
+  "product_detail_price_sub": "{remain_amount} / {amount}{unit} left ({price} won per {standardAmount}{unit})",
+  "@product_detail_price_sub": {
+    "description": "Product detail price sub label",
+    "placeholders": {
+      "remain_amount": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "amount": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "standardAmount": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "1"
+      },
+      "unit": {
+        "type": "String",
+        "example": "kg"
+      },
+      "price": {
+        "type": "num",
+        "format": "decimalPattern",
+        "example": "10,000"
+      }
+    }
+  },
+  "product_detail_participate": "Join",
+  "@product_detail_participate": {
+    "description": "Product detail participate button"
+  },
   "product_state_complete_matching": "Matched",
   "@product_state_complete_matching": {
     "description": "Product state complete matching label"
