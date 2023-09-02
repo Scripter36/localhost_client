@@ -34,7 +34,7 @@ class ProductListItemData with _$ProductListItemData {
   factory ProductListItemData.fromJson(Map<String, dynamic> json) => _$ProductListItemDataFromJson(json);
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class Products extends _$Products {
   // for test purpose
   static int lastTimestamp = DateTime.now().millisecondsSinceEpoch;

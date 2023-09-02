@@ -53,12 +53,12 @@ const _$ProductStateEnumMap = {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productsHash() => r'c9aa4c6c15626400529c8b3e986a21c79fe73ffd';
+String _$productsHash() => r'd5815fbb7028a278cf41cf3fa4cf24aadb41a35f';
 
 /// See also [Products].
 @ProviderFor(Products)
 final productsProvider =
-    AutoDisposeNotifierProvider<Products, List<ProductListItemData>>.internal(
+    NotifierProvider<Products, List<ProductListItemData>>.internal(
   Products.new,
   name: r'productsProvider',
   debugGetCreateSourceHash:
@@ -67,6 +67,6 @@ final productsProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$Products = AutoDisposeNotifier<List<ProductListItemData>>;
+typedef _$Products = Notifier<List<ProductListItemData>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member

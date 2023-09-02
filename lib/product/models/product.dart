@@ -1,12 +1,10 @@
-import 'dart:collection';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:localhost/product/models/products.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-part 'product_detail.freezed.dart';
-part 'product_detail.g.dart';
+part 'product.freezed.dart';
+part 'product.g.dart';
 
 enum Category {
   vegetable, // 채소
@@ -82,47 +80,33 @@ class ProductData with _$ProductData {
 }
 
 @riverpod
-class ProductDetail extends _$ProductDetail {
-  @override
-  Map<int, AsyncValue<ProductData>> build() {
-    return HashMap();
-  }
-
-  Future<void> load(int productId) async {
-    state = {...state, productId: const AsyncValue.loading()};
-    state = {
-      ...state,
-      productId: await AsyncValue.guard(() async {
-        // TODO
-        await Future.delayed(const Duration(milliseconds: 500));
-        return ProductData(
-            productId: productId,
-            imageUrls: ["https://picsum.photos/1000?time=$productId"],
-            authorProfileImageUrl: "https://picsum.photos/200",
-            authorId: 0,
-            authorName: "지역냉장고",
-            authorRating: 4.5,
-            authorRatingCount: 5,
-            state: ProductState.normal,
-            title: "쌀 10kg 구매 모집합니다",
-            category: Category.fruit,
-            location: "행운동",
-            createdAt: DateTime.now().subtract(Duration(minutes: 100)),
-            price: 120000,
-            remainPrice: 24000,
-            unit: "kg",
-            standardUnitAmount: 1,
-            pricePerStandardUnit: 12000,
-            minimumAmount: 1,
-            incrementAmount: 1,
-            favoriteCount: 3,
-            participantCount: 4,
-            viewCount: 1754,
-            content: '''관악구에서 쌀 함께 구입하실 분 모집합니다.
+Future<ProductData> product(ProductRef ref, int productId) async {
+  await Future.delayed(const Duration(milliseconds: 500));
+  return ProductData(
+      productId: productId,
+      imageUrls: ["https://picsum.photos/1000?time=$productId"],
+      authorProfileImageUrl: "https://picsum.photos/200",
+      authorId: 0,
+      authorName: "지역냉장고",
+      authorRating: 4.5,
+      authorRatingCount: 5,
+      state: ProductState.normal,
+      title: "쌀 10kg 구매 모집합니다",
+      category: Category.fruit,
+      location: "행운동",
+      createdAt: DateTime.now().subtract(Duration(minutes: 100)),
+      price: 120000,
+      remainPrice: 24000,
+      unit: "kg",
+      standardUnitAmount: 1,
+      pricePerStandardUnit: 12000,
+      minimumAmount: 1,
+      incrementAmount: 1,
+      favoriteCount: 3,
+      participantCount: 4,
+      viewCount: 1754,
+      content: '''관악구에서 쌀 함께 구입하실 분 모집합니다.
 저는 1kg만 필요해서 함께 구매했으면 좋겠어요.
 서울대입구역에서 소분해서 나눠가지면 좋을 듯 합니다.''',
-            desiredLocationName: "서울대입구역");
-      })
-    };
-  }
+      desiredLocationName: "서울대입구역");
 }

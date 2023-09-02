@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product_detail.dart';
+part of 'product.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -89,22 +89,107 @@ const _$CategoryEnumMap = {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productDetailHash() => r'84247a71e869b4a4abfa7cf8a594baead0892804';
+String _$productHash() => r'f33e290708951848f0ccd2adce5f73f69d208e90';
 
-/// See also [ProductDetail].
-@ProviderFor(ProductDetail)
-final productDetailProvider = AutoDisposeNotifierProvider<ProductDetail,
-    Map<int, AsyncValue<ProductData>>>.internal(
-  ProductDetail.new,
-  name: r'productDetailProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$productDetailHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
 
-typedef _$ProductDetail
-    = AutoDisposeNotifier<Map<int, AsyncValue<ProductData>>>;
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
+
+typedef ProductRef = AutoDisposeFutureProviderRef<ProductData>;
+
+/// See also [product].
+@ProviderFor(product)
+const productProvider = ProductFamily();
+
+/// See also [product].
+class ProductFamily extends Family<AsyncValue<ProductData>> {
+  /// See also [product].
+  const ProductFamily();
+
+  /// See also [product].
+  ProductProvider call(
+    int productId,
+  ) {
+    return ProductProvider(
+      productId,
+    );
+  }
+
+  @override
+  ProductProvider getProviderOverride(
+    covariant ProductProvider provider,
+  ) {
+    return call(
+      provider.productId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'productProvider';
+}
+
+/// See also [product].
+class ProductProvider extends AutoDisposeFutureProvider<ProductData> {
+  /// See also [product].
+  ProductProvider(
+    this.productId,
+  ) : super.internal(
+          (ref) => product(
+            ref,
+            productId,
+          ),
+          from: productProvider,
+          name: r'productProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$productHash,
+          dependencies: ProductFamily._dependencies,
+          allTransitiveDependencies: ProductFamily._allTransitiveDependencies,
+        );
+
+  final int productId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProductProvider && other.productId == productId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, productId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member

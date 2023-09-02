@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:localhost/product/models/product_detail.dart';
+import 'package:localhost/product/models/product.dart';
 import 'package:localhost/product/models/products.dart';
 import 'package:localhost/product/widgets/product_body.dart';
 import 'package:localhost/utils/tweens.dart';
@@ -25,13 +25,7 @@ class _ProductPageState extends ConsumerState<ProductPage> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var appLocalizations = AppLocalizations.of(context)!;
-
-    // Load product data if not loaded
-    final asyncProductData = ref.watch(productDetailProvider.select((value) => value[widget.productId]));
-    if (asyncProductData == null) {
-      WidgetsBinding.instance
-          .addPostFrameCallback((_) => ref.read(productDetailProvider.notifier).load(widget.productId));
-    }
+    final asyncProductData = ref.watch(ProductProvider(widget.productId));
 
     return Scaffold(
       appBar: AppBar(

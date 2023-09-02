@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:localhost/product/models/product_detail.dart';
+import 'package:localhost/product/models/product.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductBody extends StatelessWidget {
