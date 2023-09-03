@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:localhost/product/models/products.dart';
 import 'package:localhost/product/widgets/product_list_item.dart';
-import 'package:localhost/utils/tweens.dart';
 
 class ProductListPage extends ConsumerStatefulWidget {
   const ProductListPage({super.key});

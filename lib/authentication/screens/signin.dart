@@ -1,6 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:localhost/authentication/screens/signup.dart';
 import 'package:localhost/utils/route_builders.dart';
@@ -80,6 +82,9 @@ class _SigninPageState extends ConsumerState<SigninPage> {
                     InputDecoration(border: const OutlineInputBorder(), labelText: appLocalizations.signin_phone),
                 controller: _phoneController,
                 keyboardType: TextInputType.phone,
+                inputFormatters: [
+                  MaskedInputFormatter('###-####-####', allowedCharMatcher: RegExp(r'[0-9]')),
+                ],
                 onSubmitted: (phone) => _sendVerifyCode(phone),
               ),
               const SizedBox(height: 16),
@@ -92,6 +97,9 @@ class _SigninPageState extends ConsumerState<SigninPage> {
                   controller: _verifyCodeController,
                   keyboardType: TextInputType.number,
                   maxLength: 6,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
                   onSubmitted: (verifyCode) {
                     _verifyCode(verifyCode);
                   },

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -7,7 +9,6 @@ import 'package:localhost/product/widgets/product_state_badge.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:localhost/utils/route_builders.dart';
-import 'package:localhost/utils/tweens.dart';
 
 class ProductListItem extends ConsumerWidget {
   final int index;
@@ -85,34 +86,26 @@ class ProductListItem extends ConsumerWidget {
                 ],
               ),
               Positioned(
-                right: 0,
-                bottom: 0,
-                child: Text.rich(TextSpan(children: [
-                  WidgetSpan(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
-                      child: Icon(Icons.favorite_outline,
-                          color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
-                    ),
-                    alignment: PlaceholderAlignment.middle,
-                  ),
-                  TextSpan(
-                      text: data.favoriteCount.toString(),
-                      style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
-                  const WidgetSpan(child: SizedBox(width: 4)),
-                  WidgetSpan(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
-                      child: Icon(Icons.person_outline,
-                          color: theme.colorScheme.secondary, size: theme.textTheme.labelMedium?.fontSize),
-                    ),
-                    alignment: PlaceholderAlignment.middle,
-                  ),
-                  TextSpan(
-                      text: data.participantCount.toString(),
-                      style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
-                ])),
-              )
+                  right: 0,
+                  bottom: 0,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(Icons.favorite_outline,
+                          color: theme.colorScheme.secondary,
+                          size: (theme.textTheme.labelMedium?.fontSize ?? 0) * MediaQuery.of(context).textScaleFactor),
+                      SizedBox(width: max(1, 1 * MediaQuery.of(context).textScaleFactor)),
+                      Text(data.favoriteCount.toString(),
+                          style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
+                      SizedBox(width: 4 * MediaQuery.of(context).textScaleFactor),
+                      Icon(Icons.person_outline,
+                          color: theme.colorScheme.secondary,
+                          size: (theme.textTheme.labelMedium?.fontSize ?? 0) * MediaQuery.of(context).textScaleFactor),
+                      SizedBox(width: max(1, 1 * MediaQuery.of(context).textScaleFactor)),
+                      Text(data.participantCount.toString(),
+                          style: theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.secondary)),
+                    ],
+                  ))
             ],
           )),
       onTap: () {

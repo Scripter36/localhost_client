@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:localhost/common/screens/home.dart';
 import 'package:localhost/utils/route_builders.dart';
@@ -70,7 +71,10 @@ class _SignupState extends State<SignupPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Image.asset('assets/images/default_image.png', width: 160, height: 160),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(80),
+                              child: Image.asset('assets/images/default_image.png', width: 160, height: 160),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 16),
@@ -83,6 +87,9 @@ class _SignupState extends State<SignupPage> {
                               helperText: appLocalizations.signup_profile_nickname_supporting,
                             ),
                             controller: _nickNameController,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(8),
+                            ],
                           ),
                         ),
                         const SizedBox(height: 8),
