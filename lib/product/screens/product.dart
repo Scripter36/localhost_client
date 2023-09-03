@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:localhost/product/models/product.dart';
 import 'package:localhost/product/models/products.dart';
 import 'package:localhost/product/widgets/product_body.dart';
+import 'package:localhost/utils/colors.dart';
 import 'package:localhost/utils/tweens.dart';
 
 class ProductPage extends ConsumerStatefulWidget {
@@ -21,6 +22,32 @@ class ProductPage extends ConsumerStatefulWidget {
 }
 
 class _ProductPageState extends ConsumerState<ProductPage> {
+  late ScrollController _scrollController;
+  double _appBarOpacity = 0;
+
+  @override
+  void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(() {
+      if (_scrollController.offset > 0) {
+        setState(() {
+          _appBarOpacity = min(1, _scrollController.offset / 100);
+        });
+      } else {
+        setState(() {
+          _appBarOpacity = 0;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -84,14 +111,17 @@ class _ProductPageState extends ConsumerState<ProductPage> {
               ),
             ),
           ],
-          backgroundColor: Colors.transparent,
-          foregroundColor: Colors.white,
+          foregroundColor: _appBarOpacity > 0.5 ? theme.colorScheme.onSurface : Colors.white,
+          backgroundColor: theme.colorScheme.surface.withOpacity(_appBarOpacity),
+          scrolledUnderElevation: 0,
+          elevation: 0,
         ),
       ),
       body: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
+              controller: _scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -169,7 +199,7 @@ class _ProductPageState extends ConsumerState<ProductPage> {
               return RectCurveTween(begin: begin, end: end, curve: const Cubic(0.2, 0, 0, 1));
             },
             child: Container(
-              color: theme.colorScheme.surfaceVariant,
+              color: ColorPolyfill.getSurfaceContainer(theme.colorScheme.brightness),
               child: IntrinsicHeight(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

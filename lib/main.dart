@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:localhost/authentication/screens/start.dart';
 import 'package:intl/locale.dart' as intl;
+import 'package:localhost/utils/colors.dart';
 
 void main() {
   runApp(const ProviderScope(child: Main()));
@@ -45,12 +46,12 @@ class _MainState extends ConsumerState<Main> with WidgetsBindingObserver {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF006494)),
+        colorScheme: ColorScheme.fromSeed(seedColor: ColorPolyfill.seedColor),
         useMaterial3: true,
         fontFamily: 'Pretendard',
       ),
       darkTheme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF006494), brightness: Brightness.dark),
+          colorScheme: ColorScheme.fromSeed(seedColor: ColorPolyfill.seedColor, brightness: Brightness.dark),
           useMaterial3: true,
           fontFamily: 'Pretendard',
           brightness: Brightness.dark),

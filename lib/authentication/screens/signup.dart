@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:localhost/common/screens/home.dart';
@@ -30,7 +31,8 @@ class _SignupState extends State<SignupPage> {
 
   void _signup() {
     // TODO: check nickname and agree policy, and signup
-    Navigator.of(context).pushAndRemoveUntil(RouteBuilders.fadeThroughTransition(const HomePage()), (route) => false);
+    Navigator.of(context).pushAndRemoveUntil(
+        RouteBuilders.sharedAxisTransition(const HomePage(), SharedAxisTransitionType.horizontal), (route) => false);
   }
 
   @override

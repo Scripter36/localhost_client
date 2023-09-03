@@ -4,6 +4,7 @@ import 'package:localhost/chat/screens/chat_list.dart';
 import 'package:localhost/mypage/screens/mypage.dart';
 import 'package:localhost/product/screens/product_list.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:localhost/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +21,8 @@ class _HomePageState extends State<HomePage> {
     var appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        backgroundColor: ColorPolyfill.getSurfaceContainer(Theme.of(context).colorScheme.brightness),
+        surfaceTintColor: Colors.transparent,
         onDestinationSelected: (index) {
           setState(() {
             _selectedIndex = index;
